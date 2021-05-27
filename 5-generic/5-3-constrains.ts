@@ -23,6 +23,7 @@ function payBad(epmloyee: Employee): Employee {
 }
 
 function pay<T extends Employee>(epmloyee: T): T {
+  epmloyee.pay();
   return epmloyee;
 }
 
@@ -34,3 +35,15 @@ bob.workPartTime();
 
 const ellieAfterPay = payBad(ellie);
 const bobAfterPay = payBad(bob);
+
+const obj = {
+  name: "ellie",
+  age: 20,
+};
+
+function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+console.log(getValue(obj, "name"));
+console.log(getValue(obj, "age"));
