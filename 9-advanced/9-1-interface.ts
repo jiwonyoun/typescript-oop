@@ -48,7 +48,8 @@ type Person = {
   age: number;
 };
 
-type Name = Person["name"]; // using key by string
+// using key by string
+type Name = Person["name"];
 
-type NumberType = number;
+// only types can use union types
 type Direction = "left" | "right";
