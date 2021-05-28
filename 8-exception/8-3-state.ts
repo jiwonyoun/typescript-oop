@@ -1,10 +1,19 @@
 {
-  class TimeOutError extends Error {}
-  class OfflineError extends Error {}
+  type NetworkErrorState = {
+    result: "fail";
+    reason: "offline" | "down" | "timeout";
+  };
+  type SuccessState = {
+    result: "success";
+  };
+
+  type ResultState = NetworkErrorState | SuccessState;
 
   class NetworkClient {
-    tryConnect(): void {
-      throw new OfflineError("no network!");
+    tryConnect(): ResultState {
+      return {
+        result: "success",
+      };
     }
   }
 
